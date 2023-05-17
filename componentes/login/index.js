@@ -38,8 +38,10 @@ export default function Login({ aposAutenticacao }) {
                 login: email,
                 senha
             })
+            console.log("entrou");
 
             if (aposAutenticacao) {
+                console.log("aposAutenticacao");
                 aposAutenticacao()
             }
 

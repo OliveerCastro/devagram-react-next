@@ -6,4 +6,4 @@ function Home() {
     )
 }
 
-export default comAutorizacao
+export default comAutorizacao(Home)

@@ -6,9 +6,9 @@ import InputPublico from "../../componentes/inputPublico";
 import UploadImagem from "../../componentes/uploadImagem";
 import UsuarioService from "../../services/UsuarioService";
 import { validarEmail, 
-    validarSenha, 
-    validarNome, 
-    validarConfirmacaoSenha } from "../../utils/validadores";
+         validarSenha, 
+         validarNome, 
+         validarConfirmacaoSenha } from "../../utils/validadores";
 
 import imagemUsuarioAtivo from "../../public/imagens/usuarioAtivo.svg";
 import imagemEnvelope from "../../public/imagens/envelope.svg";
@@ -20,14 +20,12 @@ import { useRouter } from "next/router";
 const usuarioService = new UsuarioService()
 
 export default function Cadastro() {
-    const [imagem, setImagem] = useState(null)
     const [nome, setNome] = useState("")
-    const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-    const [confirmacaoSenha, 
-        setConfirmacaoSenha] = useState("")
-    const [estaSubmetendo, 
-        setEstaSubmetendo] = useState(false)
+    const [email, setEmail] = useState("")
+    const [imagem, setImagem] = useState(null)
+    const [confirmacaoSenha, setConfirmacaoSenha] = useState("")
+    const [estaSubmetendo, setEstaSubmetendo] = useState(false)
     const router = useRouter()
 
     const validarFormulario = () => {
@@ -97,6 +95,7 @@ export default function Cadastro() {
                     <UploadImagem
                         imagemPreviewClassName="avatar avatarPreview"
                         imagemPreview={
+                            // Se o usuario já setou a imagem usa ela, se não fica icone de vazio
                             imagem?.preview || imagemAvatar.src
                         }
                         setImagem={setImagem}
