@@ -4,17 +4,29 @@ import imagemLupa from "../../public/imagens/lupa.svg";
 import logoHorizontalImg from "../../public/imagens/logoHorizontal.svg";
 import { useState } from "react";
 import ResultadoPesquisa from "./ResultadoPesquisa";
+import UsuarioService from "../../services/UsuarioService"
+import { useRouter } from "next/router";
+
+const usuarioService = new UsuarioService()
 
 export default function Cabecalho() {
     const [resultadoPesquisa, setResultadoPesquisa] = useState([])
-    const [termoPesquisado, setTermoPesquisado] = useState([])
+    const [termoPesquisado, setTermoPesquisado] = useState('')
+    const router = useRouter()
 
-    const aoPesquisar = (e) => {
+    const aoPesquisar = async (e) => {
         setTermoPesquisado(e.target.value)
         setResultadoPesquisa([])
 
         if (termoPesquisado.length < 3) {
             return
+        }
+
+        try {
+            const { data } = await usuarioService.pesquisar(termoPesquisado)
+        } catch (error) {
+            alert('Erro ao pesquisar usuário' + error?.response?.data?.error)
+            
         }
 
         setResultadoPesquisa([
@@ -28,7 +40,9 @@ export default function Cabecalho() {
     }
 
     const aoClicarResultadoPesquisa = (id) => {
+        setResultadoPesquisa([])
         console.log('aoClicarResultadoPesquisa', {id});
+        router.push(`/perfil/${id}`)
     }
 
     return(
