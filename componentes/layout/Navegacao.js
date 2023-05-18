@@ -1,7 +1,7 @@
 import Image from "next/legacy/image";
 import imgHomeAtivo from "../../public/imagens/homeAtivo.svg";
- import imgHomeCinza from "../../public/imagens/homeCinza.svg";
- import imgUsuarioAtivo from "../../public/imagens/usuarioAtivo.svg";
+import imgHomeCinza from "../../public/imagens/homeCinza.svg";
+import imgUsuarioAtivo from "../../public/imagens/usuarioAtivo.svg";
 import imgUsuarioCinza from "../../public/imagens/usuarioCinza.svg";
 import imgPublicacaoCinza from "../../public/imagens/publicacaoCinza.svg";
 import imgPublicacaoAtivo from "../../public/imagens/publicacaoAtivo.svg";
