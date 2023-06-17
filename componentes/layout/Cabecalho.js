@@ -28,16 +28,8 @@ export default function Cabecalho() {
             alert('Erro ao pesquisar usuário' + error?.response?.data?.error)
             
         }
-
-        setResultadoPesquisa([
-            {
-                avatar: '',
-                nome: 'Wagner',
-                email: 'wagner@devagram.com',
-                _id: '3242432'
-            }
-        ])
     }
+
 
     const aoClicarResultadoPesquisa = (id) => {
         setResultadoPesquisa([])
@@ -45,11 +37,16 @@ export default function Cabecalho() {
         router.push(`/perfil/${id}`)
     }
 
+    const redirecionarParaHome = ( ) => {
+        router.push('/')
+    }
+
     return(
         <header className="cabecalhoPrincipal">
             <div className="conteudoCabecalhoPrincipal">
                 <div className="logoCabecalhoPrincipal">
                     <Image
+                        onClick={redirecionar}
                         src={logoHorizontalImg}
                         alt="logo devagram"
                         layout="fill"
