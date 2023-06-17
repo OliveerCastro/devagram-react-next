@@ -19,7 +19,7 @@ export default function Postagem({
     usuarioLogado
 }) {
 
-    const [deveExibirSecaoParaComentar, setDeveExibirSacaoParaComentar] = useState(false)
+    const [deveExibirSecaoParaComentar, setDeveExibirSecaoParaComentar] = useState(false)
     const [tamanhoAtualDaDescricao, setTamanhoAtualDaDescricao] = useState(
         tamanhoAtualDaDescricao
     )
@@ -39,6 +39,24 @@ export default function Postagem({
         }
 
         return mensagem
+    }
+
+    const obterImagemComentario = () => {
+        return deveExibirSecaoParaComentar
+            ? imgComentarioAtivo
+            : imgComentarioCinza
+    }
+
+    const comentar = async (comentario) => {
+        console.log('fazer comentario');
+
+        try {
+            
+        } catch (e) {
+            
+        }
+
+        return Promise.resolve(true) 
     }
 
     return (
@@ -65,11 +83,11 @@ export default function Postagem({
                     />
 
                     <image 
-                        src={imgComentarioCinza}
+                        src={obterImagemComentario()}
                         alt='icone comentar'
                         width={20}
                         height={20}
-                        onClick={() => setDeveExibirSacaoParaComentar(!deveExibirSecaoParaComentar)}
+                        onClick={() => setDeveExibirSecaoParaComentar(!deveExibirSecaoParaComentar)}
                     />
 
                     <span className="quantidadeCurtidas">
@@ -102,7 +120,7 @@ export default function Postagem({
             </div>
 
             {deveExibirSecaoParaComentar &&
-                <FazerComentario usuarioLogado={usuarioLogado} />
+                <FazerComentario comentar={comentar} usuarioLogado={usuarioLogado} />
 
             }
         </div>
