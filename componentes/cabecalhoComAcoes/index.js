@@ -15,8 +15,8 @@ export default function CabecalhoComAcoes({
                     src={iconeEsquerda}
                     alt="icone esquerda cabeçalho com ações"
                     onClick={aoClicarAcaoEsquerda}
-                    width={20}
-                    height={20}
+                    width={25}
+                    height={25}
                 />
             ) : (
                 textoEsquerda !== null && (
