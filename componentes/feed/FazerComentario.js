@@ -1,31 +1,7 @@
 import { useState } from "react"
 import Avatar from "../avatar"
 
-export function FazerComentario({ usuarioLogado, comentar }) {
-const [linhas, setLinhas] = useState(1)
-const [comentario, setComentario] = useState('')
-
-const aoDigitarComentario = (e) => {
-    const valorInput = e.target.value
-    setComentario(valorInput)
-    setLinhas(valorInput.length > 0 ? 2 : 1)
-}
-
-const aoPressionarQualquerTecla = (e) => {
-    if (e.key === 'Enter') {
-        console.log(e);
-        fazerComentario()
-    }
-}
-
-const fazerComentario = () => {
-    if (comentario.trim().length === 0 || !comentar) {
-        return
-    }
-
-    comentar(comentario)
-}
-
+export function FazerComentario({ usuarioLogado }) {
     return (
         <div className="containerFazerComentario">
             <Avatar src={usuarioLogado.avatar} />

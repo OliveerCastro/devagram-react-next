@@ -22,9 +22,8 @@ export default function Postagem({
     usuarioLogado,
     curtidas
 }) {
-    const [curtidasPostagem, setCurtidasPostagem] = useState(curtidas)
-    const [comentariosPostagem, setComentariosPostagem] = useState(comentarios)
-    const [deveExibirSecaoParaComentar, setDeveExibirSecaoParaComentar] = useState(false)
+
+    const [deveExibirSecaoParaComentar, setDeveExibirSacaoParaComentar] = useState(false)
     const [tamanhoAtualDaDescricao, setTamanhoAtualDaDescricao] = useState(
         tamanhoAtualDaDescricao
     )
